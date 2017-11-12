@@ -25,16 +25,19 @@
 		.infoWin {
 			font-size: 14px;
 		}
+		#contentBoxHeader {
+			font-size: 20px;
+		}
 		
 
     </style>
   </head>
   <body>
     <h1>Beacon</h1>
-    <p>
-      Make something <strong>amazing</strong> with the web!
-    </p>
+    <img src="images/coverMap.png" alt="beacon image" width= 100%  />
+    <p></p>
     <div id="map"></div>
+     <p></p>
     <script>
     	function initMap()
     	{
@@ -50,12 +53,14 @@
     		
     		/*-----------------------------------------------------*/
     		
+    		// =>
     		// place-holder: marker location 
     		var lat = 40.700214;  
     		var lng = -73.978007; 
     		var _uluru = {lat:lat, lng:lng};
     		var _icon = 'images/icons/crossNonUrgent.png';
     		
+    		// => 
     		// place-holder: content to for infoWindow
     		var _name = 'John Doe';
     		var _address = 'Building 22, Mc Donough Ave, Brooklyn, NY, 11205';
@@ -65,7 +70,7 @@
     		
     		
     		
-    		// Add marker 
+    		// Add marker function
     		function addMarker(coordinates, icon, name, address, phoneN, emergency, urgency)
     		{
     			// Add marker
@@ -76,10 +81,10 @@
     			});
     			
     			var infoWindow = new google.maps.InfoWindow({
-    			content: '<h1>' + name + '</h1>' +
+    			content: '<h1 id = "contentBoxHeader">' + name + '</h1>' +
     				'<h2 class="infoWin">' + address + '</h2>' +
     				'<h2 class="infoWin">' + phoneN + '</h2>' +
-    				'<h2 class="infoWin">' + emergency + '</h2>' + 
+    				'<h2 class="infoWin">' + 'Needs: ' + emergency + '</h2>' + 
     				'<h2 class="infoWin">' + urgency + '</h2>'
     			});
     		
@@ -89,27 +94,44 @@
     			
     		}
     		
+    		
+    		// => function call
     		addMarker(_uluru, _icon, _name, _address, _phoneN, _emergency, _urgency);
     		
-    		// DUMMY Markers!
-    		var _uluru2 = {lat:40.6676, lng:-73.9632};
-    		var _icon2 = 'images/icons/clothingUrgent.png';
-    		addMarker(_uluru2, _icon2, _name, _address, _phoneN, _emergency, _urgency);
     		
-    		var _uluru3 = {lat:40.6944, lng:-73.9213};
-    		var _icon3 = 'images/icons/waterNonUrgent.png';
-    		addMarker(_uluru3, _icon3, _name, _address, _phoneN, _emergency, _urgency);
     		
-    		var _uluru4 = {lat:40.6631, lng:-73.9095};
+    		
+    		
+    		/* --------------------------------------------------- */
+    		// DUMMY Markers! In Brooklyn, NY!
+    		var _uluru2 = {lat:40.6676216, lng:-73.96319069999998}
+    
+    		var _icon2 = 'images/icons/clothingNonUrgent.png';
+    		var _name2 = 'Sabrina Harris';
+    		var _address2 = '990 Washington Ave, Brooklyn, NY 11225, USA';
+    		var _phoneN2 = '(718) 259-8006';
+    		var _emergency2 = 'Clothing';
+    		var _urgency2 = 'Not Urgent. But, necessary!';
+    		addMarker(_uluru2, _icon2, _name2, _address2, _phoneN2, _emergency2, _urgency2);
+    		
+    		var _uluru3 = {lat:40.6744074, lng:-73.94391999999999};
+    		var _icon3 = 'images/icons/waterUrgent.png';
+    		var _name3 = 'Phyllis Smith';
+    		var _address3 = '145 Brooklyn Ave, Brooklyn, NY 11213, USA';
+    		var _phoneN3 = '(718) 267-6766';
+    		var _emergency3 = 'Water';
+    		var _urgency3 = 'Very Urgent! Need, as soon as possible!';
+    		addMarker(_uluru3, _icon3, _name3, _address3, _phoneN3, _emergency3, _urgency3);
+    		
+    		var _uluru4 = {lat:40.6892718, lng:-73.9511324};
     		var _icon4 = 'images/icons/foodNonUrgent.png';
-    		addMarker(_uluru4, _icon4, _name, _address, _phoneN, _emergency, _urgency);
-    		
-    		
-    		
-    		
-    		
-    		
-    		
+    		var _name4 = 'Caroline	Owens';
+    		var _address4 = '279 Nostrand Ave, Brooklyn, NY 11216';
+    		var _phoneN4 = '(718) 259-4161';
+    		var _emergency4 = 'Food';
+    		var _urgency4 = 'Not Urgent. But, necessary!';
+    		addMarker(_uluru4, _icon4, _name4, _address4, _phoneN4, _emergency4, _urgency4);
+    	
     		
     		
     		
