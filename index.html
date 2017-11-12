@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BEACON</title>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     <!--<link rel="stylesheet" href="style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
@@ -42,8 +46,43 @@
      <br/>
      <br/>
     <script>
+        
+
     	function initMap()
     	{
+            var user = {}
+            var apiContainsData = false;
+
+            var myHeaders = new Headers();
+            var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'cors',
+               cache: 'default' };
+            var myRequest = new Request('https://infinite-castle-39283.herokuapp.com/getUser', myInit);
+            fetch(myRequest).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                var data = json[0]
+                if(json[0]){
+                     user = {
+                        coordinates:{lat:data.latitude, lng:data.longitude}, 
+                        img:'images/icons/clothingNonUrgent.png', 
+                        name:data.name,
+                        address:data.address,
+                        phone:data.phone,
+                        supply:data.supply,
+                        urgent:(data.urgent ? "Urgent!" : "Not Urgent, but Necessary")} 
+                     apiContainsData = true
+                }                      
+            });
+            
+            window.setTimeout( function(){  
+            //acting like this is an Ajax call
+                if(apiContainsData){
+                    addMarker(user.coordinates, user.img, user.name, user.address, user.phone, user.supply, user.urgent);
+                }
+                
+           },2000);
     		// Map options
     		
     		var options = {
@@ -76,6 +115,7 @@
     		// Add marker function
     		function addMarker(coordinates, icon, name, address, phoneN, emergency, urgency)
     		{
+                console.log("logged")
     			// Add marker
     			var marker = new google.maps.Marker({
     				position: coordinates,
