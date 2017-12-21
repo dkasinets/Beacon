@@ -1,1 +1,18 @@
 For more information about the project click [here](https://devpost.com/software/beacon-mu8bt1).
+
+![](images/presentation/1.png)
+![](images/presentation/2.png)
+![](images/presentation/3.png)
+![](images/presentation/4.png)
+![](images/presentation/5.png)
+![](images/presentation/6.png)
+![](images/presentation/7.png)
+![](images/presentation/8.png)
+![](images/presentation/9.png)
+![](images/presentation/10.png)
+![](images/presentation/11.png)
+![](images/presentation/12.png)
+![](images/presentation/13.png)
+![](images/presentation/14.png)
+![](images/presentation/15.png)
+![](images/presentation/16.png)
